@@ -1,0 +1,174 @@
+:root {
+  --bg-color: #111827;       /* Gray-900 */
+  --panel-bg: rgba(31, 41, 55, 0.3); /* Gray-800/30 */
+  --text-color: #f3f4f6;     /* Gray-100 */
+  --border-color: #374151;   /* Gray-700 */
+  
+  /* Tier Colors */
+  --legendary: #facc15;      /* Yellow-400 */
+  --epic: #c084fc;           /* Purple-400 */
+  --rare: #60a5fa;           /* Blue-400 */
+  --uncommon: #4ade80;       /* Green-400 */
+  --common: #9ca3af;         /* Gray-400 */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px; /* Lite mindre grundstorlek */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  padding-bottom: 80px;
+}
+
+.header { text-align: center; margin-bottom: 30px; }
+.header h1 { margin-bottom: 5px; color: var(--rare); font-size: 1.5rem; }
+.header p { color: #9ca3af; font-size: 0.9rem; }
+
+/* --- Tier Sections --- */
+.tier-section { margin-bottom: 20px; }
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px; /* Mindre padding */
+  border-bottom: 2px solid;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-bottom: 0;
+}
+.tier-header h3 { margin: 0; font-size: 1.1rem; font-weight: 600; }
+
+/* Tier Specific Colors */
+.tier-header.Legendary { color: var(--legendary); border-color: rgba(250, 204, 21, 0.5); }
+.tier-header.Epic { color: var(--epic); border-color: rgba(192, 132, 252, 0.5); }
+.tier-header.Rare { color: var(--rare); border-color: rgba(96, 165, 250, 0.5); }
+.tier-header.Uncommon { color: var(--uncommon); border-color: rgba(74, 222, 128, 0.5); }
+.tier-header.Common { color: var(--common); border-color: rgba(156, 163, 175, 0.5); }
+
+/* --- Grid & Rows --- */
+.tier-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 4px 12px; /* Tätare rader och kolumner */
+  background-color: var(--panel-bg);
+  padding: 12px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* Anpassa kolumner för skärmbredd - samma som huvudprogrammet */
+@media (min-width: 640px) { .tier-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .tier-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1280px) { .tier-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.unit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Mindre mellanrum mellan ikoner */
+  padding: 4px 6px; /* Mycket mindre padding runt raden (p-1 i Tailwind) */
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.unit-row:hover {
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+.unit-name {
+  color: #d1d5db; /* Gray-300 */
+  white-space: nowrap; /* Förhindra radbrytning */
+  overflow: hidden;    /* Klipp text om den är för lång */
+  text-overflow: ellipsis; /* Visa ... om texten klipps */
+  font-size: 0.95rem; /* Lite mindre text */
+}
+.unit-row.is-owned .unit-name {
+  color: white;
+  font-weight: 500;
+}
+
+/* --- Interactive Icons --- */
+
+/* Star (Favorite) */
+.star-btn {
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-size: 1.1rem; /* Lite mindre stjärna */
+  line-height: 1;
+  color: #4b5563;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  display: flex; /* Centrera */
+}
+.star-btn:hover { color: #9ca3af; }
+.star-btn.active { color: var(--legendary); text-shadow: 0 0 5px rgba(250, 204, 21, 0.5); }
+
+/* Mastery Box (Square) */
+.mastery-btn {
+  width: 14px; height: 14px; /* Lite mindre (var 16px) */
+  border: 2px solid #9ca3af;
+  border-radius: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.mastery-btn:hover { border-color: white; }
+.mastery-btn.active {
+  background-color: #eab308;
+  border-color: var(--legendary);
+}
+
+/* Maxed Circle (Round) */
+.maxed-btn {
+  width: 14px; height: 14px; /* Lite mindre (var 16px) */
+  border: 2px solid #9ca3af;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.maxed-btn:hover { border-color: white; }
+.maxed-btn.active {
+  background-color: #22c55e;
+  border-color: #4ade80;
+}
+
+/* Checkbox (Owned) */
+.owned-checkbox {
+  width: 16px; height: 16px; /* Lite mindre */
+  cursor: pointer;
+  accent-color: #3b82f6;
+}
+
+/* --- Footer --- */
+.footer-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background-color: rgba(17, 24, 39, 0.95);
+  border-top: 1px solid var(--border-color);
+  padding: 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.3);
+  z-index: 50;
+}
+.legend {
+  display: flex; gap: 15px; font-size: 0.75rem; color: #9ca3af;
+}
+.legend-item { display: flex; align-items: center; gap: 4px; }
+
+.copy-btn {
+  background-color: #7e22ce;
+  color: white; border: none; padding: 8px 20px;
+  font-size: 0.95rem; font-weight: 600; border-radius: 6px; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.copy-btn:hover { background-color: #6b21a8; }
+.feedback { color: #4ade80; font-weight: bold; font-size: 0.9rem; animation: fadeOut 3s forwards; }
+@keyframes fadeOut { 0% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; } }
