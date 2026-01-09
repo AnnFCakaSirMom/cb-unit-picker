@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { DEFAULT_UNIT_TIERS } from './units';
 
 type UnitStatus = {
@@ -21,6 +21,11 @@ function App() {
       // Om man väljer Maxed, Mastery eller Favorite, måste man äga enheten
       if ((field === 'maxed' || field === 'mastery' || field === 'favorite') && updated[field]) {
         updated.owned = true;
+      }
+
+      // NYTT: Om man väljer Mastery, så blir den automatiskt Maxed också
+      if (field === 'mastery' && updated[field]) {
+        updated.maxed = true;
       }
       
       // Om man avmarkerar Owned, rensa allt annat
