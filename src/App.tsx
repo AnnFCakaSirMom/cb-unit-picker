@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DEFAULT_UNIT_TIERS } from './units';
 
 type UnitStatus = {
