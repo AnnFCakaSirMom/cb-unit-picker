@@ -23,7 +23,7 @@ function App() {
         updated.owned = true;
       }
 
-      // NYTT: Om man väljer Mastery, så blir den automatiskt Maxed också
+      // Om man väljer Mastery, så blir den automatiskt Maxed också
       if (field === 'mastery' && updated[field]) {
         updated.maxed = true;
       }
@@ -140,10 +140,8 @@ function App() {
       </div>
 
       <div className="footer-bar">
+        {/* HÄR ÄR ÄNDRINGEN: Ordningen på legend-items är nu samma som på raderna */}
         <div className="legend">
-           <div className="legend-item">
-             <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
-           </div>
            <div className="legend-item">
              <span style={{color: '#facc15', fontSize: '1.2em', lineHeight: 0.8}}>★</span> Favorite
            </div>
@@ -152,6 +150,9 @@ function App() {
            </div>
            <div className="legend-item">
              <div className="maxed-btn active" style={{width:12, height:12, cursor:'default'}}></div> Maxed
+           </div>
+           <div className="legend-item">
+             <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
            </div>
         </div>
         <button className="copy-btn" onClick={handleCopy}>
