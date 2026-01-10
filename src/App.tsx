@@ -70,7 +70,13 @@ function App() {
     <div className="container">
       <header className="header">
         <h1>Conqueror's Blade Unit Picker</h1>
-        <p>Click on a unit to mark as <b>Owned</b>. Use the icons to set specific status.</p>
+        <p>
+          Click on a unit to mark as <b>Owned</b>. Use the icons to set specific status.
+          <br />
+          <span style={{ opacity: 0.8, fontSize: '0.9em' }}>
+            When done, click <b>Copy Form Code</b> below and paste the result into a DM to me.
+          </span>
+        </p>
       </header>
 
       <div className="unit-list">
