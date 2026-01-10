@@ -66,6 +66,24 @@ function App() {
     setTimeout(() => setCopyFeedback(""), 3000);
   };
 
+  // Vi bryter ut Legenden till en variabel så vi slipper skriva koden två gånger
+  const LegendContent = () => (
+    <div className="legend">
+      <div className="legend-item">
+        <span style={{color: '#facc15', fontSize: '1.2em', lineHeight: 0.8}}>★</span> Favorite
+      </div>
+      <div className="legend-item">
+        <div className="mastery-btn active" style={{width:12, height:12, cursor:'default'}}></div> Mastery
+      </div>
+      <div className="legend-item">
+        <div className="maxed-btn active" style={{width:12, height:12, cursor:'default'}}></div> Maxed
+      </div>
+      <div className="legend-item">
+        <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
+      </div>
+    </div>
+  );
+
   return (
     <div className="container">
       <header className="header">
@@ -77,6 +95,11 @@ function App() {
             When done, click <b>Copy Form Code</b> below and paste the result into a DM to me.
           </span>
         </p>
+        
+        {/* HÄR: Vi lägger till förklaringen i toppen också, med lite marginal */}
+        <div style={{ marginTop: '25px' }}>
+          <LegendContent />
+        </div>
       </header>
 
       <div className="unit-list">
@@ -140,21 +163,9 @@ function App() {
       </div>
 
       <div className="footer-bar">
-        {/* HÄR ÄR ÄNDRINGEN: Ordningen på legend-items är nu samma som på raderna */}
-        <div className="legend">
-           <div className="legend-item">
-             <span style={{color: '#facc15', fontSize: '1.2em', lineHeight: 0.8}}>★</span> Favorite
-           </div>
-           <div className="legend-item">
-             <div className="mastery-btn active" style={{width:12, height:12, cursor:'default'}}></div> Mastery
-           </div>
-           <div className="legend-item">
-             <div className="maxed-btn active" style={{width:12, height:12, cursor:'default'}}></div> Maxed
-           </div>
-           <div className="legend-item">
-             <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
-           </div>
-        </div>
+        {/* Vi använder samma LegendContent här nere */}
+        <LegendContent />
+        
         <button className="copy-btn" onClick={handleCopy}>
           Copy Form Code
         </button>

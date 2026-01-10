@@ -159,7 +159,12 @@ body {
   z-index: 50;
 }
 .legend {
-  display: flex; gap: 15px; font-size: 0.75rem; color: #9ca3af;
+  display: flex; 
+  gap: 15px; 
+  font-size: 0.8rem; /* Lite större text i förklaringen */
+  color: #9ca3af;
+  justify-content: center; /* HÄR: Detta centrerar raden snyggt */
+  flex-wrap: wrap; /* Om skärmen är väldigt liten radbryts förklaringen */
 }
 .legend-item { display: flex; align-items: center; gap: 4px; }
 
