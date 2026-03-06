@@ -1,10 +1,10 @@
-// Vi definierar vad en "Unit" är direkt här istället för att importera det
+// Define what a "Unit" is directly here instead of importing it
 export interface Unit {
-  name: string;
-  leadershipCost?: number;
+    name: string;
+    leadershipCost?: number;
 }
 
-// Här är din lista (jag har klistrat in den du laddade upp nyss)
+// Default list of units grouped by tier
 export const DEFAULT_UNIT_TIERS: { [key: string]: Unit[] } = {
     "Legendary": [
         { name: "Falconetti Gunners" }, { name: "Pavise Crossbowmen" }, { name: "Silahdars" },

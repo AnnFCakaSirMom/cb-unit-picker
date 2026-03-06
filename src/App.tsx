@@ -8,6 +8,24 @@ type UnitStatus = {
   favorite: boolean;
 };
 
+// Extracted Legend component to avoid code duplication and prevent nested component renders
+const LegendContent = () => (
+  <div className="legend">
+    <div className="legend-item">
+      <span style={{color: '#facc15', fontSize: '1.2em', lineHeight: 0.8}}>★</span> Favorite
+    </div>
+    <div className="legend-item">
+      <div className="mastery-btn active" style={{width:12, height:12, cursor:'default'}}></div> Mastery
+    </div>
+    <div className="legend-item">
+      <div className="maxed-btn active" style={{width:12, height:12, cursor:'default'}}></div> Maxed
+    </div>
+    <div className="legend-item">
+      <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
+    </div>
+  </div>
+);
+
 function App() {
   const [selectedUnits, setSelectedUnits] = useState<Record<string, UnitStatus>>({});
   const [copyFeedback, setCopyFeedback] = useState("");
@@ -18,17 +36,17 @@ function App() {
       
       const updated = { ...current, [field]: !current[field] };
       
-      // Om man väljer Maxed, Mastery eller Favorite, måste man äga enheten
+      // If Maxed, Mastery, or Favorite is selected, the unit must be owned
       if ((field === 'maxed' || field === 'mastery' || field === 'favorite') && updated[field]) {
         updated.owned = true;
       }
 
-      // Om man väljer Mastery, så blir den automatiskt Maxed också
+      // If Mastery is selected, it automatically becomes Maxed as well
       if (field === 'mastery' && updated[field]) {
         updated.maxed = true;
       }
       
-      // Om man avmarkerar Owned, rensa allt annat
+      // If Owned is deselected, clear all other statuses
       if (field === 'owned' && !updated.owned) {
         updated.maxed = false;
         updated.mastery = false;
@@ -66,24 +84,6 @@ function App() {
     setTimeout(() => setCopyFeedback(""), 3000);
   };
 
-  // Vi bryter ut Legenden till en variabel så vi slipper skriva koden två gånger
-  const LegendContent = () => (
-    <div className="legend">
-      <div className="legend-item">
-        <span style={{color: '#facc15', fontSize: '1.2em', lineHeight: 0.8}}>★</span> Favorite
-      </div>
-      <div className="legend-item">
-        <div className="mastery-btn active" style={{width:12, height:12, cursor:'default'}}></div> Mastery
-      </div>
-      <div className="legend-item">
-        <div className="maxed-btn active" style={{width:12, height:12, cursor:'default'}}></div> Maxed
-      </div>
-      <div className="legend-item">
-        <input type="checkbox" className="owned-checkbox" checked readOnly style={{cursor:'default'}} /> Owned
-      </div>
-    </div>
-  );
-
   return (
     <div className="container">
       <header className="header">
@@ -96,7 +96,7 @@ function App() {
           </span>
         </p>
         
-        {/* HÄR: Vi lägger till förklaringen i toppen också, med lite marginal */}
+        {/* Add the legend at the top as well, with some margin */}
         <div style={{ marginTop: '25px' }}>
           <LegendContent />
         </div>
@@ -163,7 +163,7 @@ function App() {
       </div>
 
       <div className="footer-bar">
-        {/* Vi använder samma LegendContent här nere */}
+        {/* Use the same LegendContent down here */}
         <LegendContent />
         
         <button className="copy-btn" onClick={handleCopy}>

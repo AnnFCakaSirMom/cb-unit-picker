@@ -29,7 +29,7 @@ body {
 
 .header { text-align: center; margin-bottom: 30px; }
 .header h1 { margin-bottom: 5px; color: var(--rare); font-size: 1.5rem; }
-/* HÄR ÄR ÄNDRINGEN: Större textstorlek (1.1rem istället för 0.9rem) */
+/* CHANGE: Larger text size (1.1rem instead of 0.9rem) */
 .header p { color: #9ca3af; font-size: 1.1rem; }
 
 /* --- Tier Sections --- */
@@ -161,10 +161,10 @@ body {
 .legend {
   display: flex; 
   gap: 15px; 
-  font-size: 0.8rem; /* Lite större text i förklaringen */
+  font-size: 0.8rem; /* Slightly larger text in the legend */
   color: #9ca3af;
-  justify-content: center; /* HÄR: Detta centrerar raden snyggt */
-  flex-wrap: wrap; /* Om skärmen är väldigt liten radbryts förklaringen */
+  justify-content: center; /* HERE: This centers the row nicely */
+  flex-wrap: wrap; /* Wraps the legend if the screen is very small */
 }
 .legend-item { display: flex; align-items: center; gap: 4px; }
 
