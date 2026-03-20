@@ -403,10 +403,32 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  transition: background-color 0.2s;
 }
 
 .copy-btn:hover {
   background-color: #6b21a8;
+}
+
+.clear-btn {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.clear-btn:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  border-color: #ef4444;
 }
 
 .feedback {

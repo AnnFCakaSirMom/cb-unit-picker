@@ -108,9 +108,26 @@ const HowToUse = () => {
 };
 
 function App() {
-  const [selectedUnits, setSelectedUnits] = useState<Record<string, UnitStatus>>({});
+  const [selectedUnits, setSelectedUnits] = useState<Record<string, UnitStatus>>(() => {
+    // Initialize state from local storage on first render
+    const savedData = localStorage.getItem('cb-unit-picker-save');
+    if (savedData) {
+      try {
+        return JSON.parse(savedData);
+      } catch (e) {
+        console.error("Failed to parse saved unit data:", e);
+      }
+    }
+    return {};
+  });
+  
   const [copyFeedback, setCopyFeedback] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Save to local storage whenever selectedUnits changes
+  useEffect(() => {
+    localStorage.setItem('cb-unit-picker-save', JSON.stringify(selectedUnits));
+  }, [selectedUnits]);
 
   const toggleStatus = (unitName: string, field: keyof UnitStatus) => {
     setSelectedUnits(prev => {
@@ -164,6 +181,12 @@ function App() {
     navigator.clipboard.writeText(text);
     setCopyFeedback("Copied to clipboard!");
     setTimeout(() => setCopyFeedback(""), 3000);
+  };
+
+  const handleClear = () => {
+    if (window.confirm("Are you sure you want to clear all your saved selections? This cannot be undone.")) {
+      setSelectedUnits({});
+    }
   };
 
   return (
@@ -270,9 +293,16 @@ function App() {
         {/* Use the same LegendContent down here */}
         <LegendContent />
 
-        <button className="copy-btn" onClick={handleCopy}>
-          Copy Form Code
-        </button>
+        <div className="footer-buttons" style={{ display: 'flex', gap: '15px' }}>
+          <button className="clear-btn" onClick={handleClear}>
+            Clear All
+          </button>
+          
+          <button className="copy-btn" onClick={handleCopy}>
+            Copy Form Code
+          </button>
+        </div>
+        
         {copyFeedback && <span className="feedback">{copyFeedback}</span>}
       </div>
     </div>
