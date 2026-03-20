@@ -231,6 +231,56 @@ body {
   accent-color: #3b82f6;
 }
 
+/* --- How to Use FAQ --- */
+.how-to-use-container {
+  background-color: var(--panel-bg);
+  border-radius: 6px;
+  margin: 0 auto 20px auto;
+  max-width: 800px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.how-to-use-header {
+  margin: 0;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background-color: rgba(55, 65, 81, 0.4);
+  transition: background-color 0.2s;
+}
+
+.how-to-use-header:hover {
+  background-color: rgba(55, 65, 81, 0.6);
+}
+
+.how-to-use-content {
+  padding: 15px 25px;
+  border-top: 1px solid var(--border-color);
+  line-height: 1.5;
+  color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+.how-to-use-content ul {
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.how-to-use-content li {
+  margin-bottom: 5px;
+}
+
+.how-to-use-content strong {
+  color: var(--text-color);
+}
+
 /* --- Search Feature --- */
 .search-container {
   display: flex;
