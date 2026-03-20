@@ -335,7 +335,7 @@ body {
 
 .search-input:focus,
 .search-input:not(:placeholder-shown) {
-  width: 250px;
+  width: 180px;
   cursor: text;
   border-color: #6b7280;
   /* Gray-500 */
