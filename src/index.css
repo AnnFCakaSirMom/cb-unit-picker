@@ -232,49 +232,65 @@ body {
 }
 
 /* --- How to Use FAQ --- */
-.how-to-use-container {
-  background-color: var(--panel-bg);
-  border-radius: 6px;
-  margin: 0 auto 20px auto;
-  max-width: 800px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
+.how-to-use-wrapper {
+  position: relative;
+  z-index: 60;
 }
 
-.how-to-use-header {
-  margin: 0;
-  padding: 12px 15px;
-  font-size: 1.1rem;
-  font-weight: 600;
+.how-to-use-btn {
+  background-color: var(--panel-bg);
+  color: #9ca3af;
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  user-select: none;
-  background-color: rgba(55, 65, 81, 0.4);
-  transition: background-color 0.2s;
+  gap: 6px;
+  transition: all 0.2s;
+  font-family: inherit;
+  height: 38px;
 }
 
-.how-to-use-header:hover {
-  background-color: rgba(55, 65, 81, 0.6);
+.how-to-use-btn:hover, .how-to-use-btn.active {
+  background-color: rgba(55, 65, 81, 0.8);
+  color: var(--text-color);
+  border-color: #6b7280;
+}
+
+.how-to-use-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 450px;
+  max-width: 90vw;
+  background-color: #1f2937;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  text-align: left;
 }
 
 .how-to-use-content {
-  padding: 15px 25px;
-  border-top: 1px solid var(--border-color);
+  padding: 15px 20px;
   line-height: 1.5;
   color: #d1d5db;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .how-to-use-content ul {
-  padding-left: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding-left: 18px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .how-to-use-content li {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .how-to-use-content strong {
@@ -285,6 +301,8 @@ body {
 .search-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 5px;
   padding: 0 10px;
 }
