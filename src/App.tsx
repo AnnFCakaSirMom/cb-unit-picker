@@ -12,16 +12,16 @@ type UnitStatus = {
 const LegendContent = () => (
   <div className="legend">
     <div className="legend-item">
-      <span style={{ color: '#facc15', fontSize: '1.2em', lineHeight: 0.8 }}>★</span> Favorite
+      <span title="Mark as Favorite" style={{ color: '#facc15', fontSize: '1.2em', lineHeight: 0.8 }}>★</span> Favorite
     </div>
     <div className="legend-item">
-      <div className="mastery-btn active" style={{ width: 12, height: 12, cursor: 'default' }}></div> Mastery
+      <div title="Unit has Full Mastery" className="mastery-btn active" style={{ width: 12, height: 12, cursor: 'default' }}></div> Mastery
     </div>
     <div className="legend-item">
-      <div className="maxed-btn active" style={{ width: 12, height: 12, cursor: 'default' }}></div> Maxed
+      <div title="Unit is Max Level" className="maxed-btn active" style={{ width: 12, height: 12, cursor: 'default' }}></div> Maxed
     </div>
     <div className="legend-item">
-      <input type="checkbox" className="owned-checkbox" checked readOnly style={{ cursor: 'default' }} /> Owned
+      <input type="checkbox" title="Owned Status" className="owned-checkbox" checked readOnly style={{ cursor: 'default' }} /> Owned
     </div>
   </div>
 );
@@ -60,17 +60,17 @@ const HowToUse = () => {
           <div className="how-to-use-content">
             <ul>
               <li>
-                <strong>Favorite</strong> <span className="star-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 2px' }}>★</span>: Use this to highlight your absolute favorite units—the ones you enjoy using the most or consider your "go-to" units for your Warband.
+                <strong>Favorite</strong> <span title="Mark as Favorite" className="star-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 2px' }}>★</span>: Use this to highlight your absolute favorite units—the ones you enjoy using the most or consider your "go-to" units for your Warband.
               </li>
               <li style={{ marginTop: '10px' }}>
-                <strong>Mastery</strong> <div className="mastery-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 4px' }}></div>: This indicates the unit has its specific Mastery Tree fully unlocked.
+                <strong>Mastery</strong> <div title="Unit has Full Mastery" className="mastery-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 4px' }}></div>: This indicates the unit has its specific Mastery Tree fully unlocked.
                 <ul style={{ marginTop: '5px', marginBottom: '5px' }}>
                   <li><strong>How to check:</strong> Click on the unit in your Barracks, then click the <strong>"Leveling Up"</strong> button. If the unit has Mastery available, a dedicated <strong>Mastery box</strong> will appear here. If you don't see this box, the unit does not currently have a Mastery Tree in the game.</li>
                   <li><em>Note: This is separate from Veterancy lines and Doctrines.</em></li>
                 </ul>
               </li>
               <li style={{ marginTop: '10px' }}>
-                <strong>Max Level</strong> <div className="maxed-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 4px' }}></div>: The unit has reached its maximum level. (You can verify this by checking if the level bar under the unit's name in the Barracks is completely filled and glowing.)
+                <strong>Max Level</strong> <div title="Unit is Max Level" className="maxed-btn active" style={{ display: 'inline-block', verticalAlign: 'middle', cursor: 'default', margin: '0 4px' }}></div>: The unit has reached its maximum level. (You can verify this by checking if the level bar under the unit's name in the Barracks is completely filled and glowing.)
               </li>
               <li style={{ marginTop: '10px' }}>
                 <strong>Owned</strong> <input type="checkbox" className="owned-checkbox" checked readOnly style={{ cursor: 'default', verticalAlign: 'middle', margin: '0 4px' }} title="Owned Status" />: Mark this if you have the unit unlocked in your Barracks.
