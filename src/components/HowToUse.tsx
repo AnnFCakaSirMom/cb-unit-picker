@@ -73,6 +73,12 @@ export const HowToUse = () => {
                   <li>When your list is complete, click <strong>"Copy Form Code"</strong> to get a formatted text version of your barracks. You can then paste this directly into a message.</li>
                 </ul>
               </li>
+              <li style={{ marginTop: '10px' }}>
+                <strong>Auto-Save:</strong>
+                <ul>
+                  <li>Your selections are automatically saved to your browser's local memory. You can safely close the tab and return later without losing your progress. Use the <strong>"Clear All"</strong> button to wipe this memory.</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
