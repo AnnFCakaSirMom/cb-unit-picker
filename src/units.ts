@@ -18,7 +18,9 @@ export const DEFAULT_UNIT_TIERS: { [key: string]: Unit[] } = {
         { name: "Iron Reapers" }, { name: "Monastic Knights" }, { name: "Tercio Arquebusiers" },
         { name: "Winged Hussars" }, { name: "Kheshigs" }, { name: "Rattan Rangers" },
         { name: "Spartan Chosen" }, { name: "Order of the Dragon" },
-        { name: "Royal Longbowmen" }
+        { name: "Royal Longbowmen" },
+        { name: "Tiger and Leopard Cavalry" },
+        { name: "White Plume Guards" }
     ],
     "Epic": [
         { name: "Fortebraccio Pikemen" }, { name: "Azaps" }, { name: "Sipahis" },
@@ -53,7 +55,8 @@ export const DEFAULT_UNIT_TIERS: { [key: string]: Unit[] } = {
         { name: "Ronin" }, { name: "Qin's Footbow" }, { name: "Bagpipers" },
         { name: "Bedivere Rangers" }, { name: "Silla Guards" }, { name: "Schutzdieners" },
         { name: "Helot Auxilary" }, { name: "Landsknechts" }, { name: "Naginata Monks" },
-        { name: "Squires" }, { name: "Wuxing Pikemen" }, { name: "Doppelsoldner" }
+        { name: "Squires" }, { name: "Wuxing Pikemen" }, { name: "Doppelsoldner" },
+        { name: "Yellow Turban Chanters" }
     ],
     "Uncommon": [
         { name: "Black Dragon Archers" }, { name: "Sea Stag Deathdealers" }, { name: "Coutiliers" },
