@@ -223,15 +223,27 @@ function App() {
         <LegendContent />
 
         <div className="footer-buttons" style={{ display: 'flex', gap: '15px' }}>
-          <button className="clear-btn" onClick={handleClear}>
+          <button
+            className="clear-btn"
+            onClick={handleClear}
+            title="Removes all your saved selections (Owned, Maxed, Mastery, Favorite). This cannot be undone."
+          >
             Clear All
           </button>
-          
-          <button className="copy-btn" onClick={handleCopy}>
+
+          <button
+            className="copy-btn"
+            onClick={handleCopy}
+            title="Copies your unit list as text to the clipboard, ready to paste into a DM."
+          >
             Copy Form Code
           </button>
 
-          <button className="download-btn" onClick={handleDownload}>
+          <button
+            className="download-btn"
+            onClick={handleDownload}
+            title="Downloads your unit list as a text file, useful if the copied text is too long for Discord."
+          >
             Download as File
           </button>
         </div>
