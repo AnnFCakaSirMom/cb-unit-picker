@@ -107,6 +107,19 @@ function App() {
     setTimeout(() => setCopyFeedback(""), 3000);
   };
 
+  const handleDownload = () => {
+    const text = generateImportString();
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'cb-unit-picker-export.txt';
+    link.click();
+
+    URL.revokeObjectURL(url);
+  };
+
   const handleClear = () => {
     if (window.confirm("Are you sure you want to clear all your saved selections? This cannot be undone.")) {
       setSelectedUnits({});
@@ -122,6 +135,7 @@ function App() {
           <br />
           <span style={{ opacity: 0.8, fontSize: '0.9em' }}>
             When done, click <b>Copy Form Code</b> below and paste the result into a DM to me.
+            If Discord says your message is too long, use <b>Download as File</b> instead and attach the downloaded file to your DM.
           </span>
         </p>
 
@@ -215,6 +229,10 @@ function App() {
           
           <button className="copy-btn" onClick={handleCopy}>
             Copy Form Code
+          </button>
+
+          <button className="download-btn" onClick={handleDownload}>
+            Download as File
           </button>
         </div>
         
